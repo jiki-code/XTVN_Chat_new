@@ -36,7 +36,7 @@ const Toolbar = () => {
 
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-[#481349] flex items-center justify-between h-10 p-1.5">
+    <div className="bg-[#3C0753] flex items-center justify-between h-10 p-1.5">
       <div className="flex-1" />
       <div className="min-w-[280px] max-w-[642px] grow-[2] shrink">
         <Button

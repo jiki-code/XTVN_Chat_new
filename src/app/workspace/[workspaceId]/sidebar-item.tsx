@@ -13,7 +13,7 @@ const SidebarItemVariants = cva(
     variants: {
       variant: {
         default: "text-[#f9edffcc]",
-        active: "text-[#481349] bg-white/90",
+        active: "text-[#3C0753] bg-white/90",
       },
     },
     defaultVariants: {

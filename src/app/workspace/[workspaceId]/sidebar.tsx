@@ -8,7 +8,7 @@ import Link from "next/link";
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <aside className="w-[70px] h-full bg-[#481349] flex flex-col gap-y-4 items-center pb-4">
+    <aside className="w-[70px] h-full bg-[#3C0753] flex flex-col gap-y-4 items-center pb-4">
       <WorkspaceSwitcher />
       <SidebarButton
         icon={Home}
