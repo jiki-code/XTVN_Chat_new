@@ -86,7 +86,6 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
               disabled={signingIn}
               placeholder="Password"
               type={isPasswordVisible ? "text" : "password"}
-              onClick={() => setIsPasswordVisible(!isPasswordVisible)}
               className="pr-10"
             />
             <button
