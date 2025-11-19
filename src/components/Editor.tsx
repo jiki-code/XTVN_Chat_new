@@ -44,10 +44,8 @@ const toolbarOptions = [
 
   [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
 
-  [{ header: [1, 2, 3, 4, 5, 6, false] }],
-
   [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-  [{ font: [] }],
+[{ font: [] }],
 ];
 
 const Editor = ({
@@ -179,7 +177,7 @@ const Editor = ({
 
       <div
         className={cn(
-          "flex flex-col border border-slate-200 rounded-md overflow-hidden focus-within:border-slate-300 focus-within:shadow-sm transition bg-white",
+          "flex flex-col border border-slate-200 rounded-md h-[145px] overflow-hidden focus-within:border-slate-300 focus-within:shadow-sm transition bg-white",
           disabled && "opacity-50"
         )}
       >
