@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/workspace/[workspaceId]/workspace-sidebar.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/workspace/[workspaceId]/workspace-sidebar.jsx", "src/app/times/page.jsx", "src/app/times/page.jsx"],
   "exclude": ["node_modules"]
 }

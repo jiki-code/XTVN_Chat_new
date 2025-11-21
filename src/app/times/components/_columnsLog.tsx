@@ -11,8 +11,8 @@ export const columnsLog: ColumnDef<LogRow>[] = [
         accessorKey: "timestamp",
         header: "Date",
         cell: ({ row }) => {
-            const value = row.original.timestamp
-            return formatDateTimeStamp(value, false);
+            const value = row?.original?.timestamp
+            return value ?  formatDateTimeStamp(value, false) : '-';
         },
     },
     {

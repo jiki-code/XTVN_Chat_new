@@ -1,3 +1,5 @@
+import { Id } from "../../../../convex/_generated/dataModel";
+
 export type Option = { id: string; label: string };
 
 export interface ReasonModalProp {
@@ -19,11 +21,11 @@ export const work: Option[] = [
   { id: "other", label: "Other" },
 ];
 export type LogRow = {
-  id: string;
+  id:  Id<"userActivity">;
   type: "checkin" | "checkout" | "breakin" | "breakout";
-  breakType: string;
-  timestamp: number;
-  start: number;
-  end: number;
-  reason: string;
+  breakType?: string;
+  timestamp?: number;
+  start?: number;
+  end?: number;
+  reason?: string;
 };

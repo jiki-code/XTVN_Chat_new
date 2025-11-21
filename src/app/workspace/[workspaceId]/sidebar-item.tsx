@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { LucideIcon } from "lucide-react";
 import { IconType } from "react-icons/lib";
 import { cn } from "@/lib/utils";
+import { useEffect } from "react";
 
 const SidebarItemVariants = cva(
   "flex items-center gap-1.5 justify-start font-normal h-7 px-[18px] text-sm overflow-hidden",
@@ -27,7 +28,7 @@ interface SidebarItemProps {
   label: string;
   id: string;
   icon: LucideIcon | IconType;
-    unreadCount?: number;
+  unreadCount?: number;
   variant?: VariantProps<typeof SidebarItemVariants>["variant"];
 }
 
@@ -36,10 +37,20 @@ export const SidebarItem = ({
   label,
   id,
   icon: Icon,
-   unreadCount = 0,
+  unreadCount = 0,
   variant,
 }: SidebarItemProps) => {
   const workspaceId = useWorkspaceId();
+  useEffect(() => {
+    const audio = new Audio("/sounds/new-noti.mp3");
+    if (unreadCount > 0) {
+      setTimeout(() => {
+        audio.play();
+
+      }, 0)
+    }
+
+  }, [unreadCount])
   return (
     <Button
       variant="transparent"
@@ -58,7 +69,7 @@ export const SidebarItem = ({
       >
         <Icon className="size-3.5 mr-1 shrink-0" />
         <span className="text-sm truncate">{label}</span>
-          {unreadCount > 0 && (
+        {unreadCount > 0 && (
           <span className="ml-auto bg-red-500 text-white text-xs font-semibold rounded-full min-w-[20px] h-5 px-1.5 flex items-center justify-center shrink-0">
             {unreadCount > 20 ? "20+" : unreadCount}
           </span>
