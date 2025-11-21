@@ -1,15 +1,13 @@
 import { differenceInMinutes, format, isToday, isYesterday } from "date-fns";
 import { GetMessageReturnType } from "@/features/messages/api/use-get-messages";
 import { Message } from "./message";
-import { channel } from "diagnostics_channel";
 import { ChannelHero } from "./channel-hero";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Id } from "../../convex/_generated/dataModel";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { Loader } from "lucide-react";
 import { ConversationHero } from "./conversation-hero";
-
 const TIME_THRESHOLD = 20;
 interface MessageListProps {
   memberName?: string;
