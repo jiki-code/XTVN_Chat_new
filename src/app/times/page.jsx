@@ -12,16 +12,8 @@ import { useGetUserActivity } from "@/features/auth/components/api/use-user-acti
 import { useGetDailySummary } from "@/features/auth/components/api/use-get-daily-sumary";
 import { Loader } from "lucide-react";
 import { useRecordActivity } from "@/features/auth/components/api/use-record-activity";
-import { Id } from "../../../convex/_generated/dataModel";
 import { useForm } from "react-hook-form";
-type FormValues = {
-    userId: Id<"users">;
-    type: "checkin" | "checkout" | "breakin" | "breakout";
-    reason?: string | undefined;
-    breakType?: string | undefined;
-    start?: number | undefined;
-    end?: number | undefined;
-};
+
 export default function Page() {
     const [isOpen, setIsOpen] = useState(false);
     const [typeBreakIn, setTypeBreakIn] = useState("");
@@ -31,7 +23,7 @@ export default function Page() {
     const form = useForm<FormValues>({
         defaultValues: {
             type: "checkin",
-            userId: "" as unknown as Id<"users">,
+            userId: ""  ,
             start: 0,
             end: 0,
             reason: "",
@@ -41,6 +33,7 @@ export default function Page() {
     const { users, isLoading: isActivityLoading } = useGetUserActivity({
         userId: user?._id,
     });
+    console.log("🚀 ~ Page ~ users:", users)
     const { summary, } = useGetDailySummary({
         userId: user?._id,
     });
@@ -59,14 +52,14 @@ export default function Page() {
         }
     }, [user]);
 
-    const onApplyAPI = (apiType: "checkin" | "checkout" | "breakin" | "breakout") => {
+    const onApplyAPI = (apiType) => {
         const values = form.getValues();
         const data = {
             breakType: values.breakType || "",
             reason: values.reason || "",
             start: values.start ?? 0,
             end: values.end ?? 0,
-            userId: UserID as Id<"users">,
+            userId: UserID ,
             type: apiType,
         };
         updateRecord
@@ -116,7 +109,7 @@ export default function Page() {
         form.reset()
 
     };
-    const handleAction = (type: string) => {
+    const handleAction = (type) => {
         if (type === "CI") {
             toast.success("Check in successfully!");
             setFormCheck({
@@ -134,7 +127,7 @@ export default function Page() {
             confirmBreakOut()
         }
     };
-    function onBreakIn(isBreak: boolean, note: string, type: string) {
+    function onBreakIn(isBreak, note, type) {
         if (isBreak) {
             setIsOpen(false);
             setIsBreak(true);
@@ -215,7 +208,7 @@ export default function Page() {
                             </div>
                             {isLoading ? <div className="h-full flex items-center justify-center">
                                 <Loader className="size-6 animate-spin text-muted-foreground" />
-                            </div> : <TableLog mockLogs={users ?? []} className="max-h-[420px] overflow-y-auto" />}
+                            </div> : <TableLog   mockLogs={users} className="max-h-[420px] overflow-y-auto" />}
                         </div>
                     </div>
 

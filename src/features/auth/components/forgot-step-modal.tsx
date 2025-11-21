@@ -43,7 +43,7 @@ export function ForgotStep({
           await signIn("password", formData);
           setStep({ email });
            toast.success('Please check your email');
-        } catch (error) {
+        } catch (error: any) {
           toast.error(error ?? "Something went wrong, please try again.");
         } finally {
           setLoading(false);

@@ -2,7 +2,6 @@ import { useCallback, useMemo, useState } from "react";
 import { Id } from "../../../../convex/_generated/dataModel";
 import { useMutation } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
-import { isSet } from "util/types";
 
 type RequestType = { id: Id<"workspaces"> };
 type ResponseType = Id<"workspaces"> | null;
@@ -29,6 +28,7 @@ export const useNewJoinCode = () => {
   const mutation = useMutation(api.workspaces.newJoinCode);
   const mutate = useCallback(
     async (values: RequestType, options?: Options) => {
+      if(!values)
       try {
         setData(null);
         setError(null);

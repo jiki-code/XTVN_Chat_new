@@ -3,7 +3,7 @@ import {DataTable} from "@/components/ui/DataTable";
 import { columnsLog } from "./_columnsLog"
 import clsx from "clsx";
 type TableLogProps = {
-    mockLogs: LogRow[];
+      mockLogs: LogRow[]; 
     className?: string;
 };
 
@@ -11,8 +11,8 @@ export function TableLog({ mockLogs, className = "" }: TableLogProps) {
       
     return (
         <div className={clsx(`overflow-hidden rounded-lg border bg-slate-50 border-white/20 p-3`, className)}>
-         
-         <DataTable<LogRow, unknown>
+         if()
+         <DataTable
                 columns={columnsLog}
                 data={mockLogs}
                 searchableColumn="type"    
